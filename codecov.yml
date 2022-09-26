@@ -5,3 +5,6 @@ ignore:
     - "src/constants/icons.js"
     - "src/constants/reelsData.js"
     - "src/context"
+    - "src/pages/Register.jsx"
+    - "src/pages/Home.jsx"
+    - "src/pages/Login.jsx"
