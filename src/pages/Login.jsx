@@ -22,7 +22,8 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const { user, login } = useContext(AuthContext);
+  const {user, login} = useContext(AuthContext);
+
 
   if (user) navigate("/");
 
