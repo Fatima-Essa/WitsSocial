@@ -21,7 +21,7 @@ const Settings = () => {
     const [bio, setBio] = useState("");
     const [userDocId, setUserDocId] = useState("");
     const db = firestore;
-    const { user } = useContext(AuthContext);
+    const  user  = useContext(AuthContext);
 
 
     // fetches username from firestore to be displayed on profile page
@@ -29,7 +29,7 @@ const Settings = () => {
 
         let dbUsername;
         let dbBio;
-        const q = query(collection(db, "user"), where("userId", "==", user.uid ));
+       /* const q = query(collection(db, "user"), where("userId", "==", user.uid ));
 
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
@@ -39,8 +39,8 @@ const Settings = () => {
             setFullName(dbUsername);
             setBio(dbBio);
 
-            setUserDocId(doc.id)        // gets and stores doc id for later referencing
-        })
+            setUserDocId(doc.id)   */     // gets and stores doc id for later referencing
+        //})
     }
 
     getFullName();      //get username once page loads
