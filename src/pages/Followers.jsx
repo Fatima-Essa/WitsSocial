@@ -8,7 +8,7 @@ import {AuthContext} from "../context/AuthContext";
 const Followers = () => {
 
     const [suggestUsers, setSuggestUsers] = useState();
-    const { user } = useContext(AuthContext);
+    const  user  = useContext(AuthContext);
     useEffect(() => {
         const suggestUsers = async () => {  // suggest users
 
@@ -29,7 +29,7 @@ const Followers = () => {
             });
         };
         return suggestUsers();
-    }, [user.uid]);
+    });
 
     return (
         <div>
