@@ -1,5 +1,5 @@
 import React  from 'react';
-import Following from './Following';
+import SavedPosts from './SavedPosts';
 
 
 import Enzyme, { shallow, render, mount } from 'enzyme';
@@ -16,7 +16,7 @@ jest.mock('react-router-dom', () => ({
 }));
 
 it('renders correctly enzyme', () => {
-    const wrapper = shallow(<Following />)
+    const wrapper = shallow(<SavedPosts />)
 
     expect(toJson(wrapper)).toMatchSnapshot();
 });
