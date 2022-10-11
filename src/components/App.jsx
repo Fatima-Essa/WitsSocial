@@ -25,7 +25,7 @@ import Following from "../pages/Following";
 import Followers from "../pages/Followers";
 
 const RequireAuth = ({ children }) => {
-    const { user } = useContext(AuthContext);
+    const user  = useContext(AuthContext);
     return user ? children : <Navigate to="/login" replace />;
 };
 
