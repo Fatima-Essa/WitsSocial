@@ -1,7 +1,7 @@
 ignore:
-#    - "src/components/HomePostCard.jsx"
+    - "src/components/HomePostCard.jsx"
 #    - "src/components/App.jsx"
-    - "src/components/Header.jsx"
+#    - "src/components/Header.jsx"
 #    - "src/constants/icons.js"
 #    - "src/constants/reelsData.js"
 #    - "src/context"
