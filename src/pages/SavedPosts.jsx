@@ -25,6 +25,8 @@ import Footer from "../components/Footer";
 import NotFound from "../components/NotFound";
 import Loading from "../components/Loading";
 
+//saved post page
+//displays all saved posts by user
 const SavedPosts = () => {
     const params = useParams();
     const { username } = params;
@@ -34,6 +36,7 @@ const SavedPosts = () => {
     const [profileUser, setProfileUser] = useState(null);
     const [noUser, setNoUser] = useState(true);
 
+    //fetch saved posts from firebase
     useEffect(() => {
         const getData = async () => {
             const userQuery = query(

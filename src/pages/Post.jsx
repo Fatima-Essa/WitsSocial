@@ -8,7 +8,8 @@ import NotFound from "../components/NotFound";
 import { firestore } from "../firebase/config";
 
 
-// posting functionality
+//posting functionality
+//renders post pop-up with relevent fuctionality
 const Post = () => {
   const params = useParams();
   const [post, setPost] = useState(null);

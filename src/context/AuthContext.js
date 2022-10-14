@@ -14,10 +14,12 @@ import {
   signOut,
 } from "firebase/auth";
 
+//user authorisation via firebase
 const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  //fetch relevant user data
   useEffect(() => {
     const getUser = async () => {
       onAuthStateChanged(auth, async (user) => {
@@ -40,6 +42,7 @@ const AuthProvider = ({ children }) => {
     };
     return getUser();
   }, []);
+  //login functionality
   const login = async (email, password) => {
     try {
       const { user } = await signInWithEmailAndPassword(auth, email, password);
@@ -58,6 +61,7 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  //register functionality
   const signUp = async (email, password, username, fullname) => {
     try {
       const { user } = await createUserWithEmailAndPassword(
@@ -77,6 +81,7 @@ const AuthProvider = ({ children }) => {
           merge: true,
         }
       );
+      //user creation in firestore
       await setDoc(doc(firestore, "user", `${user?.uid}`), {
         userId: user?.uid,
         biography: "Hey there! I am new in this Instagram clone.",
@@ -97,6 +102,7 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  //logout functionality
   const logout = async () => {
     console.log("Logout");
     signOut(auth);

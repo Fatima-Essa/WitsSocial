@@ -53,7 +53,7 @@ const Register = () => {
         collection(firestore, "user"),
         where("username", "==", username)         // check for duplicates
       );
-
+      //if user already exitsts
       const users = await getDocs(userQuery);
       if (!users.empty) {
         setErrorMsg("User with this username already exists");
@@ -68,7 +68,7 @@ const Register = () => {
           setPassword("");
           setFormLoading(false);
         }
-
+        //password is incorrect
         if (!user)
           showError(
             "Sorry, your password was incorrect. Please double-check your password."

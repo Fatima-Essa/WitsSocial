@@ -11,7 +11,8 @@ import Header from "../components/Header";
 
 
 
-
+//settings page functionality
+//change bio and/or full name
 const Settings = () => {
 
     // declare variables

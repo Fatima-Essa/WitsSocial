@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import { getAuth , sendPasswordResetEmail} from 'firebase/auth'
 
 
-// forgot password feature
+//Forgot password functionality
+//reset via email
 
 function ResetPassword() {
 

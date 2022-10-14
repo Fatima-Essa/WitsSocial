@@ -14,7 +14,8 @@ import { AiOutlineSearch as SearchIcon } from "react-icons/ai";
 import Loading from "../components/Loading";
 
 
-// Explore page main function - not active for this sprint
+// Explore page main function
+//fetch and display all posts from firebase to application
 const Explore = () => {
   const [posts, setposts] = useState([]);
   const [limitNum, setLimitNum] = useState(9);

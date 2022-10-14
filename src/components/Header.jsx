@@ -33,17 +33,20 @@ import {
 } from "firebase/firestore";
 import { signOut } from "firebase/auth";
 
+//navbar on the top of page consisting of wits social logo
 const Header = () => {
     const user = useContext(AuthContext);
     const [modelOpen, setModelOpen] = useState(false);
     const [percentage, setPercentage] = useState(0);
     const [caption, setCaption] = useState("");
 
+    //menu options for navbar
     const [images, setImages] = useState(null);
     const [uploadComplete, setUploadComplete] = useState(false);
     const [uploading, setUploading] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
 
+    //logo upload
     const uploadImage = (e) => {
         e.preventDefault();
         const storageRef = ref(storage, `users/${user?.uid}/posts/${uuid()}`);

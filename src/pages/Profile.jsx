@@ -34,6 +34,7 @@ import NotFound from "../components/NotFound";
 import Loading from "../components/Loading";
 import {ImCompass2 as ExploreIcon} from "react-icons/im";
 
+//profile page functionality
 const Profile = () => {
   const params = useParams();
   const { username } = params;
@@ -46,6 +47,7 @@ const Profile = () => {
   const [noUser, setNoUser] = useState(true);
   const navigate = useNavigate();
 
+  ////displays user relevent information
   useEffect(() => {
     const getData = async () => {
       const userQuery = query(

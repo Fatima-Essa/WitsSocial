@@ -41,6 +41,7 @@ import { firestore } from "../firebase/config";
 import { AuthContext } from "../context/AuthContext";
 
 //All the functionality needed in the home page
+//write likers to firebase
 const HomePostCard = ({ post }) => {
   const [commentInput, setCommentInput] = useState("");
   const [commentsArr, setCommentsArr] = useState([]);
@@ -50,6 +51,7 @@ const HomePostCard = ({ post }) => {
   const { user } = useContext(AuthContext);
   const swiper = useSwiper();
 
+  //liking post functionality
   const likePost = async () => {
     const postRef = doc(firestore, `posts/${post?.id}`);
     updateDoc(
@@ -62,6 +64,8 @@ const HomePostCard = ({ post }) => {
     setLiked(true);
   };
 
+  //unlike post
+  //remove liker from firebase
   const unlikePost = async () => {
     const postRef = doc(firestore, `posts/${post?.id}`);
     updateDoc(
@@ -76,6 +80,8 @@ const HomePostCard = ({ post }) => {
     setLiked(false);
   };
 
+  //saved post functionality
+  //write all users saved posts to firebase
   const savePost = async () => {
     console.log(user.uid, post.id);
     const userRef = doc(firestore, `user/${user.uid}`);
@@ -97,6 +103,7 @@ const HomePostCard = ({ post }) => {
     setSaved(true);
   };
 
+  //unsave posts from firebase and users page
   const unsavePost = async () => {
     const userRef = doc(firestore, `user/${user.uid}`);
     const postRef = doc(firestore, `posts/${post.id}`);
@@ -138,6 +145,7 @@ const HomePostCard = ({ post }) => {
     setCommentInput("");
   };
 
+  //comments code for firebase
   useEffect(() => {
     // console.log(user);
     const getComments = async () => {

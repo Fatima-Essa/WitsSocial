@@ -22,6 +22,7 @@ const Login = () => {
 
   const navigate = useNavigate();
 
+  //firebase authorization
   const {user, login} = useContext(AuthContext);
 
 

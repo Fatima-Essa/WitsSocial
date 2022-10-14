@@ -8,8 +8,8 @@ import {
 } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 
-// pages
-
+//all pages
+//base application used as a form of navigation through all functionality
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Explore from "../pages/Explore";
 import Home from "../pages/Home";

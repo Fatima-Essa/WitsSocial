@@ -5,10 +5,12 @@ import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../context/AuthContext";
 
 
+//retrieve followers for specific users
 const Followers = () => {
 
     const [suggestUsers, setSuggestUsers] = useState();
     const  user  = useContext(AuthContext);
+    //fetch suggested users from firebase for current user
     useEffect(() => {
         const suggestUsers = async () => {  // suggest users
 

@@ -58,6 +58,7 @@ const Home = () => {
         setSuggestUsers(users.filter((i) => i.id !== user.uid)?.slice(0, 8));
       });
     };
+    //returns suggested users for following/viewing
     return suggestUsers();
   }, [user.uid]);
   useEffect(() => {
