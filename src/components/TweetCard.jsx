@@ -4,14 +4,14 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 // Import Swiper React components
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+//import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
+/*import "swiper/css";
+import "swiper/css/pagination";*/
 
 // import required modules
-import { Pagination } from "swiper";
+//import { Pagination } from "swiper";
 
 
 // icons
@@ -46,8 +46,8 @@ const HomePostCard = ({ post }) => {
     const [limitNum, setLimitNum] = useState(2);
     const [liked, setLiked] = useState(false);
     const [saved, setSaved] = useState(false);
-    const { user } = useContext(AuthContext);
-    const swiper = useSwiper();
+    const  user  = useContext(AuthContext);
+    //const swiper = useSwiper();
 
     // This code will like a post. It does so by fetching the post reference and then updating the likedBy array to include the current user's UID.
     // Finally, it sets the liked variable to true.

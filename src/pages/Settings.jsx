@@ -1,6 +1,6 @@
 import './settings.css'
 import {setDoc, doc} from "firebase/firestore";
- import { collection, query , where, getDocs} from "firebase/firestore";
+import { collection, query , where, getDocs} from "firebase/firestore";
 import {useContext, useState} from 'react'
 
 
@@ -11,7 +11,8 @@ import Header from "../components/Header";
 
 
 
-
+//settings page functionality
+//change bio and/or full name
 const Settings = () => {
 
     // declare variables
@@ -21,7 +22,7 @@ const Settings = () => {
     const [bio, setBio] = useState("");
     const [userDocId, setUserDocId] = useState("");
     const db = firestore;
-    const { user } = useContext(AuthContext);
+    const  user  = useContext(AuthContext);
 
 
     // fetches username from firestore to be displayed on profile page
@@ -29,18 +30,15 @@ const Settings = () => {
 
         let dbUsername;
         let dbBio;
-        const q = query(collection(db, "user"), where("userId", "==", user.uid ));
-
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-            dbUsername =  doc.data()["fullName"];
-            dbBio = doc.data()["biography"];
-
-            setFullName(dbUsername);
-            setBio(dbBio);
-
-            setUserDocId(doc.id)        // gets and stores doc id for later referencing
-        })
+        /* const q = query(collection(db, "user"), where("userId", "==", user.uid ));
+         const querySnapshot = await getDocs(q);
+         querySnapshot.forEach((doc) => {
+             dbUsername =  doc.data()["fullName"];
+             dbBio = doc.data()["biography"];
+             setFullName(dbUsername);
+             setBio(dbBio);
+             setUserDocId(doc.id)   */     // gets and stores doc id for later referencing
+        //})
     }
 
     getFullName();      //get username once page loads
@@ -73,14 +71,14 @@ const Settings = () => {
 
     return (
         <>
-        <Header/>
+            <Header/>
 
-        <div className='center'>
-            <div className = 'profile-heading'>
-                <h1 className= "settings">Settings</h1>
-                <div className='profile'>
-                    <p>My bio</p>
-                    <form onSubmit={updateBio} name='Bio editor'>
+            <div className='center'>
+                <div className = 'profile-heading'>
+                    <h1 className= "settings">Settings</h1>
+                    <div className='profile'>
+                        <p>My bio</p>
+                        <form onSubmit={updateBio} name='Bio editor'>
 
                   <textarea
                       rows="8"
@@ -90,13 +88,13 @@ const Settings = () => {
                       placeholder= {bio}
                       onChange={e => setNewBio(e.target.value)}
                   />
-                        <button
-                            className= "update-bio-button"
-                            type='submit'
-                        >Update bio</button>
-                    </form>
+                            <button
+                                className= "update-bio-button"
+                                type='submit'
+                            >Update bio</button>
+                        </form>
 
-                    <form onSubmit={updateFullName} name='Bio editor'>
+                        <form onSubmit={updateFullName} name='Bio editor'>
                   <textarea
                       rows="1"
                       cols="50"
@@ -105,16 +103,16 @@ const Settings = () => {
                       placeholder= {fullName}
                       onChange={e => setNewFullName(e.target.value)}
                   />
-                        <button
-                            className= "update-bio-button"
-                            type='submit'
-                        >Update Fullname</button>
-                    </form>
+                            <button
+                                className= "update-bio-button"
+                                type='submit'
+                            >Update Fullname</button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </>
+        </>
 
     )
 }
