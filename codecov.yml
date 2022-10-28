@@ -7,3 +7,4 @@ ignore:
     - "src/pages/Home.jsx"
     - "src/pages/Login.jsx"
     - "src/pages/Profile.jsx"
+    - "src/ChatBot"
