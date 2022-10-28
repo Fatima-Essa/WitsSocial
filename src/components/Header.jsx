@@ -358,7 +358,7 @@ const Header = () => {
                                                         >
                                                             <button
                                                                 className="bg-blue-500 px-4 py-1
-                        text-white font-semibold text-sm rounded block text-center 
+                        text-white font-semibold text-sm rounded block text-center
                         sm:inline-block mx-auto"
                                                                 disabled={caption.length <= 0}
                                                             >
