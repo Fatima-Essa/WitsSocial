@@ -4,11 +4,11 @@ import {Link} from "react-router-dom";
 import {useContext, useEffect, useState} from "react";
 import {AuthContext} from "../context/AuthContext";
 
-//retrieve users following for display
+
 const Following = () => {
 
     const [suggestUsers, setSuggestUsers] = useState();
-    const  user  = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     useEffect(() => {
         const suggestUsers = async () => {  // suggest users
 
@@ -29,7 +29,7 @@ const Following = () => {
             });
         };
         return suggestUsers();
-    });
+    }, [user.uid]);
 
     return (
         <div>
