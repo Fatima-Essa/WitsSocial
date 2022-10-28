@@ -20,7 +20,7 @@ import Footer from "../components/Footer";
 
 // Display posts and suggested users
 const TweetsHome = () => {
-    const { user } = useContext(AuthContext);
+    const  user  = useContext(AuthContext);
     const [suggestUsers, setSuggestUsers] = useState();
     const [posts, setposts] = useState([]);
     const [limitNum, setLimitNum] = useState(9);
@@ -62,18 +62,18 @@ const TweetsHome = () => {
                     ...doc.data(),
                     id: doc?.id,
                 }));
-                setSuggestUsers(users.filter((i) => i.id !== user.uid)?.slice(0, 8));
+                setSuggestUsers(users.filter((i) => i.id !== user)?.slice(0, 8));
             });
         };
         return suggestUsers();
     }, [user.uid]);
     useEffect(() => {
         const getData = async () => {     // get profile data
-            const userData = await getDoc(doc(firestore, `/user/${user?.uid}`));
+            const userData = await getDoc(doc(firestore, `/user/${user}`));
             setUserProfile(userData.data());
         };
         getData();
-    }, [user?.uid]);
+    }, [user]);
     return (
         // The code defines a header, a footer, and a content area in between.
         // The content area is divided into two sections, one for stories and one for tweets.
